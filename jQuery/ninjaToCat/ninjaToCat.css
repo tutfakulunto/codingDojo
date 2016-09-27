@@ -1,0 +1,21 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+}
+#container{
+    width: 200px;
+    margin: 0px auto;
+    font-family: verdana, sans-serif;
+}
+h1{
+    padding: 15px 0;
+    font-size: 0.8em;
+}
+ul li{
+    list-style-type: none;
+}
+img{
+    display: inline-block;
+    width: 181px;
+}

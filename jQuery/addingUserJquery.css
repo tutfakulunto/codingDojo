@@ -1,0 +1,43 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+}
+#container{
+    width: 600px;
+    margin: 0px auto;
+    font-family: verdana, sans-serif;
+}
+table{
+    width: 100%;
+    margin: 20px 0;
+    border-collapse:collapse;
+}
+h1{
+    border-bottom: 2px solid grey;
+    margin: 20px 0;
+}
+tr{
+    padding: 5px 10px;
+}
+th, td{
+    padding: 10px 10px;
+}
+input{
+    display: inline-block;
+    padding: 2px 0;
+    margin: 5px 0;
+}
+input[type="submit"]{
+    margin-top: 5px;
+    padding: 5px 20px;
+}
+#bordered{
+    padding: 5px 5px;
+    margin: 10px 0;
+    border: 1px solid black;
+}
+label {
+  width: 120px;
+  display: inline-block;
+}

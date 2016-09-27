@@ -1,0 +1,57 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+}
+#wrapper{
+    width: 1000;
+    height: 750px;
+    margin: 0px auto;
+}
+header{
+    width: 1010px;
+    height: 150px;
+    background-color: #FDFDFD;
+    padding-top: 20px;
+    overflow: hidden;
+}
+    header h1{
+        display: inline-block;
+        font-size: 20px;
+        margin-left: 250px;
+        margin-top: 20px;
+    }
+nav{
+    height: 25px;
+    background: linear-gradient(#CBE1E6, silver, #CBE1E6);
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-top: 1px solid grey;
+}
+    nav a{
+        text-decoration: none;
+        color: gray;
+        margin: 0 5px 0 5px;
+    }
+    nav li{
+        list-style-type: none;
+        display: inline;
+    }
+    nav li:after{
+        content: "|";
+        font-size: 25px;
+        color: silver;
+    }
+    nav li:first-child:before{
+        content: "|";
+        font-size: 25px;
+        color: silver;
+    }
+main{
+    width: 1010px;
+    height: 590px;
+    background-color: #050505;
+}
+
+

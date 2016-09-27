@@ -1,0 +1,11 @@
+#tabs li{
+    display: inline;
+}
+#tabs li a{
+    padding: 5px 10px;
+    background-color: grey;
+    color: white;
+    text-decoration: none;
+    border: 2px solid red;
+    border-radius: 5px;
+}

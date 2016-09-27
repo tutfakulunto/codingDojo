@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Card</title>
+        <link rel="stylesheet" type="text/css" href="contactCard.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function() {
+
+          $('#button').click(function() {
+            // Create an element.
+            var newContactCard = $("<div class='contact_card'></div>");
+
+              // Set the div's content before adding it to the DOM.
+            newContactCard.html("<h1>" + $("#first_name").val() + $("#last_name").val() + "</h1>" + "<p>" + $("#description").val() + "</p>");
+
+            // Finally add the element to the DOM.
+            $('main').append(newContactCard);
+
+            // Don't do this:
+            //$(".entry").val("");
+
+            // Do this instead:
+            $('#first_name').val('');
+            $('#last_name').val('');
+            $('#description').val('');
+
+            return false;
+          });
+
+          $(document).on('click', '.contact_card', function() {
+            $(this).find('h1').hide();
+            $(this).find('p').show();
+          });
+
+        });
+
+        </script>
+    </head>
+    <body>
+        <div id="container">        
+            <header>
+                <h1>Contact Card</h1>
+            </header>
+
+            <main>
+                <form>
+                  <div>
+                    <label>First name</label>
+                    <input class="entry" id="first_name" type="text" placeholder="John">
+                  </div>
+                  <div>
+                    <label>Last name</label>
+                    <input class="entry" id="last_name" type="text" placeholder="Doe">
+                  </div>
+                  <div>
+                    <label>Description</label>
+                    <textarea id="description" rows="4" cols="50">
+                    </textarea>
+                  </div>
+                  <div>
+                    <input id="button" type="submit" value="Add User">
+                  </div>
+                </form>
+            </main>
+
+        </div><!-- end container -->
+    </body>
+</html>
+
+
+

@@ -1,0 +1,142 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+}
+#wrapper{
+    width: 960px;
+    margin: 0px auto;
+    font-family: verdana, sans-serif;
+    background-color: white;
+}
+header{
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid grey;
+}
+    header img, h1 {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 1.1em;
+    }
+    header img{
+        margin-left: 25px;
+    }
+    header h1{
+        margin: 30px 0 0 200px;
+    }
+nav{
+    color: #4d4d4d;
+    background-color: #e6e6e6;
+}
+    nav li:first-child{
+        border-left: 1px groove #C8C8C8;
+    }
+    nav li{
+        display: inline-block;
+        padding-left: 20px;
+        border-right: 1px groove #C8C8C8;
+        padding: 0 15px 5px 15px;
+        font-weight: bold;
+        font-size: 0.7em;
+    }
+    nav ul{
+        padding: 5px 30px;
+    }
+    nav a{
+        color: #4d4d4d;
+        text-decoration: none;
+    }
+main{
+    margin-top: 30px;
+    background-color: #303030;
+}
+#main_left, #main_right{
+    display: inline-block;
+    vertical-align: top;
+}
+#main_left{
+    width: 400px;
+    padding: 15px 5px 15px 30px;
+}
+    #main_left figure img{
+        margin-top: 5px;
+        border: 5px solid white;
+    }
+    #main_left figcaption img{
+        width: 60px;
+        height: 20px;
+        border-radius: 5px;
+        border: 1px solid white;
+        margin-left: 10px;
+    }
+    #main_left figcaption a{
+        font-size: 0.6em;
+        text-decoration: none;
+        color: yellow;
+        margin-left: 10px;
+    }
+#main_right{
+    width: 500px;
+}
+    #main_right h1{
+        background-color: #FFE87C;
+        width: 463px;
+        padding: 7px 12px;
+        margin-top: 20px;
+        font-size: 1em;
+    }
+    #main_right h2{
+        background-color: grey;
+        color: white;
+        width: 447px;
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+    #main_right p{
+        background-color: grey;
+        color: white;
+        width: 447px;
+        padding: 10px 20px 30px 20px;
+        font-size: 0.6em;
+    }
+footer{
+    background-color: #303030;
+}
+    footer .subcontents{
+        display: inline-block;
+        vertical-align: top;
+        width: 150px;
+        padding: 0 40px 40px 35px;
+    }
+    footer .subcontents img{
+        width: 200px;
+    }
+    footer h1{
+        background-color: #FFE87C;
+        padding: 5px 5px;
+        font-size: 0.6em;
+        width: 200px;
+    }
+    footer p{
+        background-color: white;
+        width: 190px;
+        font-size: 0.5em;
+        padding: 3px 5px 10px 5px;
+    }
+    footer p a{
+    background-color: #FFE87C;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px
+    padding: 20px 50px;
+    vertical-align: bottom;
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px 0 5px 100px;
+}
+span{
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,29 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+}
+#container{
+    width: 430px;
+    margin: 0px auto;
+    font-family: verdana, sans-serif;
+}
+h1{
+    padding: 15px 0;
+}
+img{
+    display: inline-block;
+    width: 90px;
+    border: 6px groove silver;
+}
+main{
+    margin-bottom: 20px;
+}
+a{
+    margin-left: 165px;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: silver;
+    color: white;
+    border-radius: 5px;
+}

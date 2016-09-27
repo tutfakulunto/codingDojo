@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Shapes with CSS 3</title>
+        <link rel="stylesheet" type="text/css" href="hoverPhotos.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function() {
+
+            $('img').hover(function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $(this).attr({src: "dog.jpg", alt: "dog"});
+                }, function() {
+                    $(this).attr({src: "cat.jpg", alt: "cat"});
+                }
+            );
+
+        });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>jQuery - Assignment 4 - Hover In/Out</h1>
+            </header>
+            <main>
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+                <img src="cat.jpg" alt="cat">
+            </main>
+
+
+
+        </div><!-- end container -->
+    </body>
+</html>
+
+
+

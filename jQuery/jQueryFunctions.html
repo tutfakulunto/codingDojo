@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Shapes with CSS 3</title>
+        <link rel="stylesheet" type="text/css" href="jQueryFunctions.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            event.preventDefault();
+            $('#append p').append('<p>ibid</p>');
+            });
+ 
+            $('#click a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+            $('#click p').append('<p>Clicked!</p>');
+            });
+
+            $('#focus a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                alert("Handler for .focus() called.");
+            });
+
+            $('#val input').keyup(function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                var value = $(this).val();
+                $('#val p').text(value);
+            });
+
+            $('#text a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+            $('#text p').text('Some original text.');
+            });
+
+            $('#attr a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+            $('#attr img').attr({src: "dog.jpg", alt: "puppy"});
+            });
+
+            $('#html a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#html .result').html('<h2><span class="red">Hello </span>World</h2>');
+            });
+
+            $('#data a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#data').data('test', { first: 12, last: 'cats'});
+                $('#count').text($('#data').data('test').first);
+                $('#items').text($('#data').data('test').last);
+            });
+
+            $('#before a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#before p').before('<h2>Before</h2>');
+            });
+
+            $('#after a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#after p').after('<h2>After</h2>');
+            });
+
+            $('#show a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#show p').show('slow', function() {
+                    // Animation complete.
+                });
+            });
+
+            $('#hide a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#hide p').hide('slow', function() {
+                    // Animation complete.
+                });
+            });
+
+            $('#toggle a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#toggle p').toggle('slow', function() {
+                    // Animation complete.
+                });
+            });
+
+            $('#fade_in a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#fade_in p').fadeIn('slow', function() {
+                    // Animation complete.
+                });
+            });
+
+            $('#fade_out a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#fade_out p').fadeOut('slow', function() {
+                    // Animation complete.
+                });
+            });
+
+            $('#slide_down a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#slide_down p').slideDown('slow', function() {
+                    // Animation complete.
+                });
+            });
+
+            $('#slide_up a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+                $('#slide_up p').slideUp('slow', function() {
+                    // Animation complete.
+                });
+            };
+        });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="add_class" class="column">
+                <div class="button">
+                    <a href="#">AddClass</a>
+                </div>
+                <div class="result">
+                    <h1>AddClass</h1>
+                    <p>Click the button to add class 'red' to this paragraph.</p>
+                </div>
+            </div>
+
+            <div id="slide_toggle" class="column">
+                <div class="button">
+                    <a href="#">SlideToggle</a>
+                </div>
+                <div class="result">
+                    <h1>SlideToggle</h1>
+                    <p>Click the button to slidetoggle a hidden image.</p>
+                </div>
+            </div>
+
+            <div id="append" class="column">
+                <div class="button">
+                    <a href="#">Append</a>
+                </div>
+                <div class="result">
+                    <h1>Append</h1>
+                    <p>Click the button to append a new paragraph!</p>
+                </div>
+            </div>
+
+            <div id="click" class="column">
+                <div class="button">
+                    <a href="#">Click</a>
+                </div>
+                <div class="result">
+                    <h1>Click</h1>
+                    <p>Click the button use the click function.</p>
+                </div>
+            </div>
+
+            <div id="focus" class="column">
+                <div class="button">
+                    <a href="#">Focus</a>
+                </div>
+                <div class="result">
+                    <h1>Focus</h1>
+                    <p>Click the button to change the focus.</p>
+                </div>
+            </div>
+
+            <div id="val" class="column">
+                <div class="button">
+                    <a href="#">Val</a>
+                </div>
+                <div class="result">
+                    <h1>Val</h1>
+                    <input type="text" value="Example Text">
+                    <p></p>
+                </div>
+            </div>
+
+            <div id="text" class="column">
+                <div class="button">
+                    <a href="#">Text</a>
+                </div>
+                <div class="result">
+                    <h1>Text</h1>
+                    <p>Click the button to change the text.</p>
+                </div>
+            </div>
+
+            <div id="attr" class="column">
+                <div class="button">
+                    <a href="#">Attr</a>
+                </div>
+                <div class="result">
+                    <h1>Attr</h1>
+                    <img src="cat.jpg" alt="cat" width="90" height="90">
+                </div>
+            </div>
+
+            <div id="html" class="column">
+                <div class="button">
+                    <a href="#">HTML</a>
+                </div>
+                <div class="result">
+                    <h1>HTML</h1>
+                    <p>Click the button change the HTML.</p>
+                </div>
+            </div>
+
+            <div id="data" class="column">
+                <div class="button">
+                    <a href="#">Data</a>
+                </div>
+                <div class="result">
+                    <h1>Data</h1>
+                    <p>The values stored were <span id="count"></span> and <span id="items"></span>.</p>
+                </div>
+            </div>
+
+            <div id="before" class="column">
+                <div class="button">
+                    <a href="#">Before</a>
+                </div>
+                <div class="result">
+                    <h1>Before</h1>
+                    <p>Click the button change element before the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="after" class="column">
+                <div class="button">
+                    <a href="#">After</a>
+                </div>
+                <div class="result">
+                    <h1>After</h1>
+                    <p>Click the button change the element after the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="show" class="column">
+                <div class="button">
+                    <a href="#">Show</a>
+                </div>
+                <div class="result">
+                    <h1>Show</h1>
+                    <p style="display: none">Click the button to show the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="hide" class="column">
+                <div class="button">
+                    <a href="#">Hide</a>
+                </div>
+                <div class="result">
+                    <h1>Hide</h1>
+                    <p>Click the button to hide the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="toggle" class="column">
+                <div class="button">
+                    <a href="#">Toggle</a>
+                </div>
+                <div class="result">
+                    <h1>Toggle</h1>
+                    <p>Click the button to toggle the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="fade_in" class="column">
+                <div class="button">
+                    <a href="#">Fade In</a>
+                </div>
+                <div class="result">
+                    <h1>Fade In</h1>
+                    <p style="display: none">Click the button to fade in the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="fade_out" class="column">
+                <div class="button">
+                    <a href="#">Fade Out</a>
+                </div>
+                <div class="result">
+                    <h1>Fade Out</h1>
+                    <p>Click the button fade out the paragraph.</p>
+                </div>
+            </div>
+
+            <div id="slide_down" class="column">
+                <div class="button">
+                    <a href="#">Slide Down</a>
+                </div>
+                <div class="result">
+                    <h1>Slide Down</h1>
+                    <p style="display: none">Click the button slide down the paragraph</p>
+                </div>
+            </div>
+
+            <div id="slide_up" class="column">
+                <div class="button">
+                    <a href="#">Slide Up</a>
+                </div>
+                <div class="result">
+                    <h1>Slide Up</h1>
+                    <p>Click the button slide up the paragraph.</p>
+                </div>
+            </div>
+
+        </div><!-- end container -->
+    </body>
+</html>
+
+
+

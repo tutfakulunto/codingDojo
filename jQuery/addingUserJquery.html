@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Shapes with CSS 3</title>
+        <link rel="stylesheet" type="text/css" href="addingUserJquery.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $("form").submit(function() {
+              $("#user_list tbody").append("<tr><td>" + $("#first_name").val() + "</td><td>" + $("#last_name").val() + "</td><td>" + $("#email").val() + "</td><td>" + $("#contact").val() + "</td></tr>")
+              $(".entry").val("");
+              return false;
+              });
+          });         
+
+        </script>
+    </head>
+
+  <body>
+    <div id="container">
+      <table id="user_list">
+        <thead id="bordered">
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th> 
+            <th>Email Address</th>
+            <th>Contact #</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <h1>Add User</h1>
+        <form>
+          <div>
+            <label>First name</label>
+            <input class="entry" id="first_name" type="text" placeholder="John">
+          </div>
+          <div>
+            <label>Last name</label>
+            <input class="entry" id="last_name" type="text" placeholder="Doe">
+          </div>
+          <div>
+            <label>Email Address</label>
+            <input class="entry" id="email" type="text" placeholder="john.doe@gmail.com">
+          </div>
+          <div>
+            <label>Contact No.</label>
+            <input class="entry" id="contact" type="text" placeholder="(512) 555-2424">
+          </div>
+          <div>
+            <input type="submit" value="Add User">
+          </div>
+        </form>
+
+    </div><!-- end container -->
+  </body
+</html>

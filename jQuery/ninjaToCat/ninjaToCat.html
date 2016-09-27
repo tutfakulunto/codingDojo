@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ninja to Cat</title>
+        <link rel="stylesheet" type="text/css" href="ninjaToCat.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $(document).ready(function() {
+           /* $("#ninjaCat").sortable().on("click", "img", function(event) {
+                var target = $(this), src = target.attr("src");
+                target.attr("src", /cat/.test(src) ? src.replace("cat", "ninja") : src.replace("ninja", "cat"));
+            }); */
+
+            $('img').click(function(){
+               var temp = $(this).attr('src');
+               $(this).attr('src', $(this).attr('data-alt-src'));
+               $(this).attr('data-alt-src', temp);
+            });
+
+        });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            
+            <h1>jQuery - Assignment 3 - Ninja to Cat</h1>
+            <ul id="ninjaCat">
+                <li><img src="ninja0.png" data-alt-src="cat0.png"></li>
+                <li><img src="ninja1.png" data-alt-src="cat1.png"></li>
+                <li><img src="ninja2.png" data-alt-src="cat2.png"></li>
+                <li><img src="ninja3.png" data-alt-src="cat3.png"></li>
+                <li><img src="ninja4.png" data-alt-src="cat4.png"></li>
+            </ul>
+
+        </div><!-- end container -->
+    </body>
+</html>
+
+
+
