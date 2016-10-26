@@ -1,5 +1,4 @@
-function maxMinAvg(arr) {
-    //your code here 
+function maxMinAvg(arr) { 
     var max = arr[0];
     var min = arr[0];
     var sum = arr[0];
