@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Ninja Gold</title>
+    <style>
+    body{
+        width: 960px;
+    }
+    .building{
+        display: inline-block;
+        width: 200px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        vertical-align: top;
+        height: 200px;
+        border: 1px solid black;
+    }
+    .building h1, .building p{
+        text-align: center;
+    }
+    .gained{
+        color: green;
+    }
+
+    .lost{
+        color: red;
+    }
+    a{
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+    }
+    input[type='submit']{
+        margin-left: 55px;
+    }
+    </style>
+<body>
+    <p>Your Gold = {{session['gold']}}</p>
+    <a href="/reset">Reset</a>
+    
+    <form class="building" action="/process_money" method="post">
+        <h1>Farm</h1>
+        <p>(earns 10-20 gold pieces)</p>
+        <input type="hidden" name="building" value="farm" />
+        <input type="submit" value="Find Gold!"/>
+    </form>
+
+    <form class="building" action="/process_money" method="post">
+        <h1>Cave</h1>
+        <p>(earns 5-10 gold pieces)</p>
+        <input type="hidden" name="building" value="cave" />
+        <input type="submit" value="Find Gold!"/>
+    </form>
+
+    <form class="building" action="/process_money" method="post">
+        <h1>House</h1>
+        <p>(earns 2-5 gold pieces)</p>
+        <input type="hidden" name="building" value="house" />
+        <input type="submit" value="Find Gold!"/>
+    </form>
+
+    <form class="building" action="/process_money" method="post">
+        <h1>Casino</h1>
+        <p>(earns/takes away 0-50 gold pieces)</p>
+        <input type="hidden" name="building" value="casino"/>
+        <input type="submit" value="Find Gold!"/>
+    </form>
+    {% for element in session['comments'] %}
+    <p class="{{element['style']}}">{{element['comment']}}</p>
+    {% endfor %}
+
+</body>
+</html>

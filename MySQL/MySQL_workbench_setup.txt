@@ -1,0 +1,9 @@
+USE twitter
+SELECT * FROM users
+SELECT * FROM faves
+SELECT * FROM follows
+SELECT * FROM tweets
+SELECT * FROM users WHERE id < 10
+SELECT * FROM tweets WHERE id < 10
+SELECT * FROM tweets WHERE user_id > 2
+SELECT * FROM users WHERE first_name LIKE "A%";

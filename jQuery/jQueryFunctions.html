@@ -7,10 +7,26 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>
         $(document).ready(function() {
-            event.preventDefault();
+            $('#add_class a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
+            $('#add_class p').addClass('red');
+            });
+
+            $('#slide_toggle a').on('click', function(event) {
+                    // Prevent the page's scrollbar from jumping to the top.
+                    event.preventDefault();
+                $('#slide_toggle p').slideToggle("slow", function(){
+
+                });
+            });
+
+            $('#append a').on('click', function(event) {
+                // Prevent the page's scrollbar from jumping to the top.
+                event.preventDefault();
             $('#append p').append('<p>ibid</p>');
             });
- 
+
             $('#click a').on('click', function(event) {
                 // Prevent the page's scrollbar from jumping to the top.
                 event.preventDefault();
@@ -122,7 +138,7 @@
                 $('#slide_up p').slideUp('slow', function() {
                     // Animation complete.
                 });
-            };
+            });
         });
         </script>
     </head>
