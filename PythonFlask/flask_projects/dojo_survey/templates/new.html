@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form class="" action="/create" method="post">
+        <input type="text" placeholder="name" name="name">
+        <select class="" name="location">
+            <option value="Seoul">Seoul</option>
+            <option value="Hong Kong">Hong Kong</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Bangkok">Bangkok</option>
+        </select>
+        <select>
+            <option value="Python">Python</option>
+            <option value="Javascript">Javascript</option>
+            <option value="R">R</option>
+            <option value="C++">C++</option>
+        </select>
+        <label>Comments (optional):</label>
+        <textarea name="comments"></textarea>
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
