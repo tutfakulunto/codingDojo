@@ -1,4 +1,4 @@
-#!/Users/scott/projects/CodingDojo/Python2/djangoEnv/bin/python
+#!/Users/scott/projects/CodingDojo/PythonDjango/djangoEnv/bin/python
 
 import sys
 import getopt
