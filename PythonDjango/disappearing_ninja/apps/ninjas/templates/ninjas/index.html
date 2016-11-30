@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Disappearing Ninjas</title>
+</head>
+<body>
+    {% load staticfiles %}
+        {% if image %}
+        <img src="{% static image %}" alt="" />
+        {% else %}
+    <img src="{% static 'ninjas/donatello.jpg' %}" alt="" />
+    <img src="{% static 'ninjas/leonardo.jpg' %}" alt="" />
+    <img src="{% static 'ninjas/michaelangelo.jpg' %}" alt="" />
+    <img src="{% static 'ninjas/raphael.jpg' %}" alt="" />
+        {% endif %}
+    {{ image }}
+    {# <img src="{% static 'ninjas/april.jpg' %}" alt="" />#}
+</body>
+</html>
