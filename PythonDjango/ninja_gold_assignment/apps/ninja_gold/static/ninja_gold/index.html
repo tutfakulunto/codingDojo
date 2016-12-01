@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Ninja Gold Assignment for Django</title>
+</head>
+<body>
+    <!-- Below items are gold earning options, activity monitoring well section, and the reset game button -->
+    <div class='container' id="mainbody">
+      <h1>Ninja Gold 2</h1>
+      <div id="gold_counter">
+        <h4>Gold: <span class="badge">{{request.session.gold}}</span></h4>
+      </div>
+      <div id="goldOptions">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Farm</h3>
+          </div>
+          <div class="panel-body">
+            <p>(earns 10-20 gold)</p>
+            <form action="/process_gold" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="location" value="farm" />
+              <input type="submit" class="btn btn-primary" value="Find Gold!"></button>
+            </form>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Cave</h3>
+          </div>
+          <div class="panel-body">
+            <p>(earns 5-10 gold)</p>
+            <form action="/process_gold" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="location" value="cave" />
+              <input type="submit" class="btn btn-primary" value="Find Gold!"></button>
+            </form>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">House</h3>
+          </div>
+          <div class="panel-body">
+            <p>(earns 2-5 gold)</p>
+            <form action="/process_gold" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="location" value="house" />
+              <input type="submit" class="btn btn-primary" value="Find Gold!"></button>
+            </form>
+          </div>
+        </div>
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">Casino</h3>
+          </div>
+          <div class="panel-body">
+            <p>(earn/lose up to 50 gold)</p>
+            <form action="/process_gold" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="location" value="casino" />
+              <input type="submit" class="btn btn-primary" value="Find Gold!"></button>
+            </form>
+          </div>
+        </div>
+        <div class="well">
+          <p>Game activity here:</p>
+          <p>{{request.session.message}}
+        </div>
+        <form action="/reset" method="post">
+        {% csrf_token %}
+
+          <input type="submit" class="btn btn-lg btn-warning" value="Reset the game">
+        </form>
+      </div><!--End div id gold options-->
+
+    </div> <!--End div container-->
+
+
+</body>
