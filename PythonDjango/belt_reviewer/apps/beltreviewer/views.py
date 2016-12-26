@@ -34,6 +34,18 @@ def new(request):
         print_messages(request, result[1])
         return redirect(reverse('reviewer:new'))
 
+def create(request):
+    if not check_logged_in(request):
+        return redirect(reverse('users:index'))
+
+    result = Review.objects.create_review(request.POST, request.session['user']['id'])
+
+    if result[0] == True:
+        return redirect(reverse('reviews:show', kwargs={'id': result[1].book.id }))
+    else:
+        print_messages(request, result[1])
+        return redirect(reverse('reviews:new'))
+
 @register.filter
 def show(request, id):
     if not check_logged_in(request):
