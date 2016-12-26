@@ -18,7 +18,7 @@ class UserManager(models.Manager):
         pw_hash = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
 
         # pw is hashed, time to create new user
-        user = self.create(first_name = request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], pw_hash=pw_hash)
+        user = self.create(name = request.POST['name'], alias=request.POST['alias'], email=request.POST['email'], pw_hash=pw_hash)
 
         return (True, user)
 
@@ -37,8 +37,8 @@ class UserManager(models.Manager):
 
     def validate_inputs(self, request):
         errors = []
-        if len(request.POST['first_name']) < 2 or len(request.POST['last_name']) < 2:
-            errors.append("Please include a first and/or last name longer than two characters.")
+        if len(request.POST['name']) < 2 or len(request.POST['alias']) < 2:
+            errors.append("Please include a name or alias longer than two characters.")
         if not EMAIL_REGEX.match(request.POST['email']):
             errors.append("Please include a valid email.")
         if len(request.POST['password']) < 8 or request.POST['password'] != request.POST['confirm_pw']:
