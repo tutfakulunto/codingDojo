@@ -46,9 +46,12 @@ class UserManager(models.Manager):
 
         return errors
 
+    def fetch_user_info(self, id):
+        return self.filter(id=id).annotate(total_reviews=Count('review'))[0]
+
 class User(models.Model):
-    first_name = models.CharField(max_length=45)
-    last_name = models.CharField(max_length=45)
+    name = models.CharField(max_length=100)
+    alias= models.CharField(max_length=45)
     email = models.CharField(max_length=45)
     pw_hash = models.CharField(max_length=255)
 

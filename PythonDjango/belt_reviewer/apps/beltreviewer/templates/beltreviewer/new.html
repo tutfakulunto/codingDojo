@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Book Reviews</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'reviewer:index' %}">Home</a>
+            <a href="{% url 'login_reg:logout' %}">Logout</a>
+        </nav>
+    </header>
+    <h1>Add a New Book Title or Review:</h1>
+    <form action="{% url 'reviewer:create' %}" method="post">
+        <% csrf_token %}
+        Book Title:
+        <select name="book_id">
+            <option value="None">Book Title</option>
+            {% for book in books %}
+            <option value="{{book.id}}">{{book.title}}</option>
+            {% endfor %}
+        </select>
+        <p>Or add a new book:</p>
+        <input type="text" name="new_book" placeholder="Book Title">
+        Author:
+        <select name="author_id">
+            <option value="None">Author Name</option>
+            {% for author in authors %}
+            <option value="{{author.id}}">{{author.name}}</option>
+            {% endfor %}
+        </select>
+        <p>Or add a new author:</p>
+        <input type="text" name="new_author" placeholder="Author Name">
+        <h2>Review:</h2>
+        <textarea name="content" rows="8" cols="40"></textarea>
+        <h2>Rating:</h2>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <input type="submit" value="Add Book and Review">
+    </form>
+</body>
+</html>
