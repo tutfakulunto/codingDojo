@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from models import Book, Author, Review
-from ..login_reg_app.views import print_messages
-from ..login_reg_app.models import User
+from ..login_registration.views import print_messages
+from ..login_registration.models import User
 
 # Create your views here.
 from django.template import Library
