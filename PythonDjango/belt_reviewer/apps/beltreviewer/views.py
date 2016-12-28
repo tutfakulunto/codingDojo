@@ -52,7 +52,7 @@ def show(request, id):
         return redirect(reverse('login_reg:index'))
 
     book = Book.objects.get(id=id)
-    return render(request, 'beltreviewer/show.html', { 'book' : book })
+    return render(request, 'beltreviewer/show.html', { 'book': book })
 
 @register.filter
 def show_user(request, id):
@@ -60,4 +60,4 @@ def show_user(request, id):
         return redirect(reverse('login_reg:index'))
 
     user = User.objects.fetch_user_info(id)
-    return render(request, 'beltreviewer/show_user.html', { 'user' : user })
+    return render(request, 'beltreviewer/show_user.html', { 'user': user })
