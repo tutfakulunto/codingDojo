@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Button Fun Assignment</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        #container{
+            margin: 0 auto;
+            width: 920px;
+            padding: 20px;
+        }
+        .btn{
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+    <script>
+        function toggleRedBackground(){
+            $(this).toggleClass("red");
+        }
+        function hoverInGreenBackground(){
+            $(this).css("background-color", "green");
+        }
+        function hoverOutGreenBackground(){
+            $(this).removeAttr("style");
+        }
+        $(document).ready(function(){
+            $(".btn").on("click", toggleRedBackground);
+            $(".btn").hover(hoverInGreenBackground, hoverOutGreenBackground);
+        });
+    </script>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Button Fun</h1>
+        <button class="btn" type="button">Click Me!</button>
+
+</body>
+</html>
