@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose Single Pangolin</title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css"/>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <h1>Show the <em><%= pangolin.name %></em> Document</h1>
+
+    <p><strong>Name:</strong> <%= pangolin.name %></p>
+
+    <p><a href="/mongooses/<%= pangolin._id %>/edit">Update pangolin name</a><br /><br />
+        <a href="/mongooses/<%= pangolin._id %>/destroy">Delete pangolin</a></p>
+
+    <p>&nbsp;</p>
+    <p><a href="/">Go Home</a></p>
+
+</div>
+
+</body>
+</html>

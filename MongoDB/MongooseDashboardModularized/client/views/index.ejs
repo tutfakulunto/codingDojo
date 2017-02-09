@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css"/>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <h1>Show all Documents in <em>pangolins</em> MongoDB</h1>
+
+    <ul>
+        <% for(var i = pangolins.length -1; i > -1; i--) {%>
+            <li><strong>Name:</strong> <a href="mongooses/<%= pangolins[i]._id %>"><%= pangolins[i].name %></a></li>
+        <% } %>
+    </ul>
+
+    <p><a href="mongooses/new">Insert New Pangolin into Database</a></p>
+
+</div>
+
+</body>
+</html>

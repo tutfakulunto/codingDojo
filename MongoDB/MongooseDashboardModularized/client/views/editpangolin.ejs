@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose Single Pangolin</title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css"/>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <h1>Update the <em><%= pangolin.name %></em> Document</h1>
+
+    <form action="/mongooses/<%= pangolin._id %>" method="post">
+        <p><label for="name"><strong>Name:</strong></label>
+        <input type="text" name="name" value="<%= pangolin.name %>"/></p>
+        <p><input type="submit" value="Update"/></p>
+    </form>
+
+    <p><a href="/">Go Home</a></p>
+
+</div>
+
+</body>
+</html>
