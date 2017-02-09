@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit</title>
+</head>
+<body>
+  <h1>Edit #<%= pangolin.name %>!</h1>
+  <form action="/<%= pangolin.id %>" method='post'>
+    Name: <input type="text" name="name" value="<%= pangolin.name %>">
+    Weight: <input type="text" name="weight" value="<%= pangolin.weight %>">
+    Color: <input type="text" name="color" value="<%= pangolin.color %>">
+    <input type="submit" value="Edit pangolin!">
+  </form>
+  <a href="/">Home</a>
+</body>
+</html>
