@@ -17,9 +17,9 @@ app.factory("userFactory", [function(){
     var factory = {};
 
     var users = [
-        {firstName: "Malfurion", lastname: "Stormrage", language: "Thalassian"},
-        {firstName: "Anduin", lastname: "Lothar", language: "Lua"},
-        {firstName: "Varian", lastname: "Wrynn", language: "Common"},
+        {firstName: "Malfurion", lastName: "Stormrage", language: "Thalassian"},
+        {firstName: "Anduin", lastName: "Lothar", language: "Lua"},
+        {firstName: "Varian", lastName: "Wrynn", language: "Common"},
     ];
     factory.index = function(callback){
         callback(users);
