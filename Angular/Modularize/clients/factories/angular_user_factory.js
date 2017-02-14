@@ -1,9 +1,7 @@
 app.factory('userFactory', [function() {
     function UserConstructor() {
 
-    var users = [{
-      name: "mike"
-    }];
+    var users = [];
 
     function typeIs(variable, type) {
       return (typeof variable === type);
