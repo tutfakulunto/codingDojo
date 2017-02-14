@@ -1,0 +1,17 @@
+{
+  "name": "PlayersAndTeams",
+  "homepage": "https://github.com/tutfakulunto/codingDojo",
+  "authors": [
+    "Scott Johnson <c.scott.johnson@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
