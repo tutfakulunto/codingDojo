@@ -13,6 +13,9 @@ app.config(function($routeProvider){
       .when("/associations", {
          templateUrl: "static/partials/associations.html"
       })
+      .when("/:teamname", {
+         templateUrl: "partials/team.html"
+      })
       .otherwise({
          redirectTo: "/players"
       })
