@@ -1,5 +1,5 @@
 {
-  "name": "FileStructureAndSimpleServer",
+  "name": "FullMEAN",
   "homepage": "https://github.com/tutfakulunto/codingDojo",
   "authors": [
     "Scott Johnson <c.scott.johnson@gmail.com>"
@@ -13,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2"
+  }
 }
