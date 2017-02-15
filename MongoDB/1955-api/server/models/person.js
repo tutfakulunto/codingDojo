@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
+
 var PersonSchema = new mongoose.Schema({
-  name: String
+    name: { type: String, required: true},
 })
 
-var Person = mongoose.model('Person', PersonSchema)
+mongoose.model('Person', PersonSchema);

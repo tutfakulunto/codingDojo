@@ -7,7 +7,7 @@ var express = require('express'),
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
 
-require('./server/config/environment.js');
+require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 app.listen(port);

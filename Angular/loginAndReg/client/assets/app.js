@@ -28,7 +28,7 @@ app.controller('loginController', ['$scope', 'usersFactory', function($scope, uF
         $scope.user = data.data;
       }
     }, function(err){
-      console.log("I am an error",err);
+      console.log("I am an error", err);
     })
   }
   $scope.login = function(){
@@ -43,7 +43,7 @@ app.controller('loginController', ['$scope', 'usersFactory', function($scope, uF
         }
       },
       function(err){
-        console.log("I am an error",err);
+        console.log("I am an error", err);
       });
   }
 }]);
