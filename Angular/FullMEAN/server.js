@@ -4,6 +4,8 @@ var express  = require( 'express' ),
     port     = 8000,
     app      = express();
 
+app.use(bp.json());
+
 // set an environment variable called APPROOT to keep track of the root folder of your app
 process.env['APPROOT'] = __dirname;
 
