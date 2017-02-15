@@ -1,20 +1,27 @@
-var app = angular.module("app", ["ngRoute"]);
-app.config(function ($routeProvider){
-    $routeProvider
-        .when("/", {
-            templateUrl: "partials/index.html"
-            controller: "indexController",
-            controllerAs: "IC"
-        })
-        .when("/new", {
-            templateUrl: "partials/new.html",
-            controller: "newController",
-            controllerAs: "NC"
-        })
-        .when("/:id/edit", {
-            templateUrl: "partials/edit.html",
-            controller: "editController",
-            controllerAs: "EC"
-        })
-        .otherwise("/new");
-});
+(function() {
+    'use strict';
+
+    angular.module('app', ['ngRoute'])
+        .config(config);
+
+    function config($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'partials/index.html',
+                controller: 'IndexController'
+            })
+            .when('/new', {
+                templateUrl: 'partials/new.html',
+                controller: 'NewController'
+            })
+            .when('/:id/edit', {
+                templateUrl: 'partials/edit.html',
+                controller: 'EditController'
+            })
+            .when('/:id/show', {
+                templateUrl: 'partials/show.html',
+                controller: 'ShowController'
+            });
+    }
+
+})();

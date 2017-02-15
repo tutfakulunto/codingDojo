@@ -1,21 +1,25 @@
-app.controller('newController', ['$scope','friendsFactory', '$location', function($scope, friendsFactory, $location) {
+(function() {
+    'use strict';
 
-    var index = function(){
-        friendsFactory.index(function(returnedData){
-            $scope.friends = returnedData;
-        });
-    };
+    angular.module('app')
+        .controller('NewController', NewController);
 
-    index();
+    function NewController($scope, $routeParams, $location, FriendsFactory) {
+        $scope.create = function() {
+            var data = {
+                firstName: $scope.form.firstName,
+                lastName: $scope.form.lastName
+            };
 
-    $scope.create = function(data) {
-        friendsFactory.create(data, function(response) {
-            if( response.error ) {
-                console.error(response.error);
-            } else {
-                index();
-                $location.path('/')
-            }
-        });
-    };
-}]);
+            FriendsFactory.create(data, function(response) {
+                if( response.error ) {
+                    alert('There was an error creating your friend.');
+                    console.log(response.error);
+                } else {
+                    $location.path('/');
+                }
+            });
+        };
+    }
+
+})();

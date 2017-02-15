@@ -1,57 +1,79 @@
-console.log('Friends Factory');
-app.factory('friendsFactory', ['$http', function($http) {
-  // constructor for our factory
-  var friends = [];
-  var friend = {};
-  function FriendsFactory(){
-    var _this = this;
-    this.create = function(newfriend,callback){
-      $http.post('/friends', newfriend).then(function(returned_data){
-        console.log(returned_data.data);
-        if (typeof(callback) == 'function'){
-          callback(returned_data.data);
+(function() {
+    "use strict";
+
+    angular.module('app')
+        .factory('FriendsFactory', FriendsFactory);
+
+    function FriendsFactory($http) {
+        var friends = [],
+            friend = {empty:true};
+
+        var factory = {
+            index: _index,
+            show: _show,
+            create: _create,
+            update: _update,
+            delete: _delete,
+            getFriends: _getFriends,
+            getFriend: _getFriend
+        };
+
+        function _index(callback) {
+            $http.get('/friends').then(function(response){
+                friends = response.data;
+
+                if( typeof(callback) === 'function' ) {
+                    callback(friends);
+                }
+            });
         }
-      });
-    };
-    this.update = function(friend, callback){ // what parameters do we need?
-      $http.put('/friends/' + friend._id, friend).then(function(response){
-        if(typeof(callback) == "function"){
-          callback(response.data);
+
+        function _show(id, callback) {
+            // is http request necessary here
+            $http.get('/friends/' + id).then(function(response) {
+                if( !response.data.error ) {
+                    friend = response.data.friend;
+                }
+
+                if( typeof(callback) === 'function' ) {
+                    callback(friend);
+                }
+            });
         }
-      });
-    };
-    this.index = function(callback){
-      //call this method if you want to update or set the friends variable
-      $http.get('/friends').then(function(returned_data){
-        console.log(returned_data.data);
-        friends = returned_data.data;
-        callback(friends);
-      });
- //Note: this can be shortened to $http.get('/friends').then(callback); 
- //But only if you only want to run the callback from the controller.
-    };
-    this.delete = function(id, callback){// what parameters do we need?
-        $http.delete("/friends/" + id).then(function(res){
-          callback(res);
-        });
-    };
-    this.show = function(id, callback){// what parameters do we need?
-        $http.get("/friends/" + id).then(function(res){
-          var friend = {};
-          if(!res.error){
-            friend = res.data;
-          }
-          callback(friend);
-        });
-    };
-    // Sometimes you might not want to make a DB call, and just get the information stored in the factory.
-    this.getFriends = function(callback){
-      callback(friends);
-    };
-    this.getFriend = function(callback){
-        callback(friend);
-    };
-  }
-  console.log(new FriendsFactory());
-  return new FriendsFactory();
-}]);
+
+        function _create(friend, callback) {
+            $http.post('/friends', friend).then(function(response) {
+                if( typeof(callback) === 'function' ) {
+                    callback(response.data);
+                }
+            });
+        }
+
+        function _update(friend, callback) {
+            $http.put('/friends/' + friend._id, friend).then(function(response) {
+                if( typeof(callback) === 'function' ) {
+                    callback(response.data);
+                }
+            });
+        }
+
+        function _delete(id, callback) {
+            $http.delete('/friends/' + id).then(function(response) {
+                if( typeof(callback) === 'function' ) {
+                    callback(response.data);
+                }
+            });
+        }
+
+        function _getFriends(callback) {
+            callback(friends);
+        }
+
+        function _getFriend(callback) {
+            callback(friend);
+        }
+
+        return factory;
+    }
+
+})();

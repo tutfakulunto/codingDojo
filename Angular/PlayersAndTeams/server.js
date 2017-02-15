@@ -1,13 +1,11 @@
-var express  = require( 'express' ),
-    path     = require( 'path' ),
-    root     = __dirname,
-    port     = process.env.PORT || 8000,
-    app      = express();
+var path       = require("path");
+var express    = require('express');
+var bodyParser = require('body-parser');
 
+var app = express();
 
-app.use( express.static( path.join( root, './client' )));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'app')));
 
-
-app.listen( port, function() {
-  console.log( `server running on port ${ port }` );
-});
+app.listen(8000);
