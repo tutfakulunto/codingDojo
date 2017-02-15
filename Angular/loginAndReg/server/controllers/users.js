@@ -1,104 +1,57 @@
-var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+var bcrypt   = require('bcryptjs');
+    var mongoose = require('mongoose');
+    var User     = mongoose.model('User');
 
-function response_additions(err, data) {
-    if (err) {
-        this.json({
-            error: err
-        });
-    }
-    this.json({
-        data
-    });
-}
-
-function UsersController() {
-    var _this = this;
-    this.index = function(req, res) {
-        User.find({}, function(err, data) {
-            res.json(data);
-        });
+    module.exports = {
+        register: _register,
+        login: _login,
+        get: _getUser
     };
-    this.create = function(req, res) {
-        res.json({
-            future: 'create'
-        });
-    }
-    this.update = function(req, res) {
-        res.json({
-            future: 'update'
-        });
 
-    }
-    this.delete = function(req, res) {
-        res.json({
-            future: 'delete'
-        });
-
-    }
-    this.show = function(req, res) {
-        res.json({
-            future: 'show'
-        });
-    }
-
-    this.login = function(req, res) {
-        User.findOne({
-            email: req.body.email
-        }, function(err, data) {
-            if (err) {
-                res.json({
-                        errors: {
-                            login_reg: {
-                                message: "user name and/or password is invalid",
-                                kind: "what didn't work",
-                                path: "reference to the schema's name",
-                                value: "cause of the initial error"
-                            }
-                        },
-                        name: "Validation error"
-                    }
-
-                );
-            } else if (data && data.validPassword(req.body.password)) {
-                res.json({
-                    _id: data._id
-                });
-            } else {
-                res.json({
-                        errors: {
-                            login_reg: {
-                                message: "user name and/or password is invalid",
-                                kind: "what didn't work",
-                                path: "reference to the schema's name",
-                                value: "cause of the initial error"
-                            }
-                        },
-                        name: "Validation error"
-                    }
-
-                );
-            }
-        })
-    }
-    this.register = function(req, res) {
-        var user = new User(req.body);
-        user.save(function(err, newuser) {
-            if (err){
-              res.json(err);
-            }
-            else{
-            res.json({
-                _id: newuser._id
+    function _getUser(request, response) {
+        User.findById(request.params.id, function(error, data) {
+            response.json({
+                error: error,
+                data: data
             });
-          }
         });
-        // res.json({future:'register'});
     }
 
+    function _register(request, response) {
+        User.create(request.body, function(error, data) {
+            response.json({
+                error: error,
+                data: data
+            });
+        });
+    }
 
-}
+    function _login(request, response) {
+        User.findOne({email: request.body.email}, function(error, data) {
+            var returnError = null,
+                returnData  = null;
 
+            if( error ) {
+                returnError = error;
 
+            } else if( !data ) {
+                returnError = 'EMAIL NOT FOUND';
 
-module.exports = new UsersController();
+            } else {
+                if( bcrypt.compareSync(
+                        request.body.password,
+                        data.password) ) {
+                    returnData = data;
+
+                } else {
+                    returnError = 'WRONG PASSWORD';
+                }
+
+            }
+
+            response.json({
+                error: returnError,
+                data: returnData
+            });
+        });
+    }
