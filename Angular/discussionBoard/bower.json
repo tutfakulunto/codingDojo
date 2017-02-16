@@ -1,12 +1,12 @@
 {
-  "name": "discussionBoard",
-  "homepage": "https://github.com/tutfakulunto/codingDojo",
+  "name": "DiscussionBoard2",
+  "description": "",
+  "main": "index.js",
   "authors": [
     "Scott Johnson <c.scott.johnson@gmail.com>"
   ],
-  "description": "",
-  "main": "",
-  "license": "MIT",
+  "license": "ISC",
+  "homepage": "https://github.com/tutfakulunto/codingDojo",
   "ignore": [
     "**/.*",
     "node_modules",
