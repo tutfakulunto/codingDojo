@@ -1,0 +1,31 @@
+<form ng-submit="createProduct(pF)">
+    <input type="text" name="name" id="name" ng-model="pF.name">
+    <label for="name">Name:</label>
+
+    <div ng-show="errors.name">{{errors.name.message}}</div>
+
+    <input type="text" name="image" id="image" ng-model="pF.image">
+    <label for="image">Image:</label>
+
+    <div ng-show="errors.image">{{errors.image.message}}</div>
+
+        <input type="text" name="description" id="description" ng-model="pF.description">
+        <label for="description">Description:</label>
+
+        <div ng-show="errors.description">{{errors.description.message}}</div>
+
+        <input type="text" name="quantity" id="quantity" ng-model="pF.quantity">
+        <label for="quantity">Quantity:</label>
+
+        <div ng-show="errors.quantity">{{errors.quantity.message}}</div>
+
+        <input type="submit" value="Add">
+
+    <div ng-repeat="product in products">
+            <img ng-src="{{product.image}}" alt="{{product.name}}">
+            <span >{{product.name}}</span>
+
+            <p>{{product.description}}</p>
+            <p>{{product.quantity}}</p>
+    </div>
+</form>
