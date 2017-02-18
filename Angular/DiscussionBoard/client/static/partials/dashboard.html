@@ -24,7 +24,7 @@
             <tbody>
                 <tr ng-repeat="topic in topics | filter: filter_topic">
                     <td>{{topic.category}}</td>
-                    <td><a ng-href="" ng-click="show(topic._id)" >{{topic.name}}</a></td>
+                    <td><a ng-href="" ng-click="show(topic._id)">{{topic.name}}</a></td>
                     <td><a ng-href="" ng-click="showUser(topic._user._id)">{{topic._user.name}}</a></td>
                     <td>{{topic.posts.length}}</td>
                 </tr>
