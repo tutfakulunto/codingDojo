@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var Topic = mongoose.model('Topic');
-var User = mongoose.model('User');
-var Post = mongoose.model('Post');
-var Comment = mongoose.model('Comment');
+var mongoose = require('mongoose'),
+    Topic = mongoose.model('Topic'),
+    User = mongoose.model('User'),
+    Post = mongoose.model('Post'),
+    Comment = mongoose.model('Comment');
 
 
 module.exports = {

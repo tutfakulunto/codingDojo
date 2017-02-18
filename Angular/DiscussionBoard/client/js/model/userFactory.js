@@ -1,8 +1,8 @@
 myApp.factory('userFactory', function($http){
 
-    var factory = {};
-    var user = [];
-    var currentUser;
+    var factory = {},
+        user = [],
+        currentUser;
 
     factory.index = function(route, callback) {
         $http.get(route).success(function(output){

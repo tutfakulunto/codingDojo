@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
-var fs = require('fs');
-var path = require('path');
+var mongoose = require('mongoose'),
+    fs = require('fs'),
+    path = require('path');
 
 mongoose.connect('mongodb://localhost/discussion_board');
 var models_path = path.join(__dirname, '../models');

@@ -1,9 +1,9 @@
 myApp.factory('topicFactory', function($http){
 
-    var factory = {};
-    var topics = [];
-    var posts = []
-    var oneTopic;
+    var factory = {},
+        topics = [],
+        posts = [],
+        oneTopic;
 
     factory.index = function(callback) {
         $http.get('/topics').success(function(output){
