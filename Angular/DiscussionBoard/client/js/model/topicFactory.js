@@ -1,61 +1,49 @@
 myApp.factory('topicFactory', function($http){
 
     var factory = {},
-        topics = [],
         posts = [],
         oneTopic;
 
     factory.index = function(callback) {
-        $http.get('/topics').success(function(output){
-            topics = output;
-            callback(topics);
-        });
+        return $http.get('/topics');
     }
 
     factory.create = function(info, callback) {
         console.log('create topic factory')
         console.log(info);
-        $http.post('/topics', info).success(function(output){
-            topics.push(output);
-            callback(topics)
-        });
+        
+        return $http.post('/topics', info);
     }
 
     factory.createPost = function(info, route, callback) {
-        $http.post(route+"/post", info).success(function(){
-            callback();
-        });
-    }
-
-    factory.createComment = function(info, callback) {
-        $http.post('/topics/comment', info).success(function(){
+        $http.post(route + "/post", info).then(function(){
             callback();
         });
     }
 
     factory.upVote = function(info, callback) {
-        $http.post("/topics/post/"+info).success(function(output){
+        $http.post("/topics/post/" + info).then(function(output){
             oneTopic = output;
             callback(oneTopic);
         });
     }
 
     factory.downVote = function(info, callback) {
-        $http.post("/topics/down/post/"+info).success(function(output){
+        $http.post("/topics/down/post/" + info).then(function(output){
             oneTopic = output;
             callback(oneTopic);
         });
     }
 
     factory.show = function(info, callback) {
-        $http.get(info).success(function(output){
+        $http.get(info).then(function(output){
             oneTopic = output;
             callback(oneTopic);
         });
     }
 
     factory.delete = function(users, callback) {
-        $http.delete('/users/'+users._id).success(function(output){
+        $http.delete('/users/' + users._id).then(function(output){
             users.splice(users.indexOf(users), 1);
             callback(users);
         });

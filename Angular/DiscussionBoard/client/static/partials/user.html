@@ -1,25 +1,23 @@
-<div ng-controller="usersController">
-    <div class="row">
-        <div class="col-xs-3 pull-right">
-                <a href="#/dashboard">Dashboard</a>
-                <a href="#/logout">Logout</a>
-        </div>
+<div class="row">
+    <div class="col-xs-3 pull-right">
+            <a href="#/dashboard">Dashboard</a>
+            <a href="#/logout">Logout</a>
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <h2>Username: {{user.name}}</h2>
-        </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Username: {{user.name}}</h2>
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <h4>Posted...</h4>
-        </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Posted...</h4>
     </div>
-    <div class="row">
-        <div class="col-xs-4 col-xs-offset-1">
-            <p>{{user.topics.length}} Topic</p>
-            <p>{{user.posts.length}} Posts</p>
-            <p>{{user.comments.length}} Comment</p>
-        </div>
+</div>
+<div class="row">
+    <div class="col-xs-4 col-xs-offset-1">
+        <p>{{user.topics.length}} Topic</p>
+        <p>{{user.posts.length}} Posts</p>
+        <p>{{user.comments.length}} Comment</p>
     </div>
 </div>

@@ -4,21 +4,26 @@ myApp.config(function($routeProvider){
 
         .when('/', {
             templateUrl: './static/partials/login.html',
-            controller:  'usersController',
+            controller:  'loginController'
         })
         .when('/dashboard', {
             templateUrl: './static/partials/dashboard.html',
-            controller: 'usersController'
+            controller: 'dashboardController',
+            resolve: {
+                topics: function(topicFactory){
+                    return topicFactory.index();
+                }
+            }
         })
-        .when('/topics/:id', {
+        .when('/topic/:id', {
             templateUrl: './static/partials/topic.html',
-            controller: "topicsController"
+            controller: 'topicsController'
         })
         .when('/users/:id', {
             templateUrl: './static/partials/user.html',
-            controller: 'usersController'
+            controller: 'userController'
         })
         .otherwise({
             redirectTo: '/'
-        })
+        });
 });

@@ -1,8 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMessages', 'angularMoment', 'ngCookies']);
-
-myApp.controller('usersController', function($scope, $cookies, $location, userFactory){
-
-        
+myApp.controller('loginController', function($scope, $cookies, $location, userFactory){
 
     if ($location.path() == '/') {
         console.log('logged out')
@@ -18,8 +14,6 @@ myApp.controller('usersController', function($scope, $cookies, $location, userFa
         }
     }
 
-
-
     $scope.login = function(){
         if ($scope.getUser){
             userFactory.create($scope.getUser, function(output){
@@ -31,4 +25,4 @@ myApp.controller('usersController', function($scope, $cookies, $location, userFa
         }
     }
 
-})
+});

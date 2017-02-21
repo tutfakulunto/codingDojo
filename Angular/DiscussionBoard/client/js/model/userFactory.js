@@ -13,13 +13,13 @@ myApp.factory('userFactory', function($http){
 
     factory.create = function(info, callback) {
         $http.post('/users', info).success(function(output){
-            currentUser=output;
+            currentUser = output;
             callback(currentUser);
         });
     }
 
     factory.delete = function(users, callback) {
-        $http.delete('/users/'+users._id).success(function(output){
+        $http.delete('/users/' + users._id).success(function(output){
             users.splice(users.indexOf(users), 1);
             callback(users);
         });

@@ -1,12 +1,14 @@
-myApp.controller('topicsController', function($scope, $cookies, $location, userFactory, topicFactory){
+myApp.controller('topicsController', function($scope, $cookies, $location, userFactory, topics){
+
+    $scope.topics = topics;
 
     $scope.currentUser = $cookies.getObject('currentUser');
     $scope.newComment = {};
 
     if ($location.path() == '/dashboard') {
-        topicFactory.index(function(data){
-            $scope.topics = data
-        });
+        // topicFactory.index(function(data){
+        //    $scope.topics = data;
+        // });
     } else {
         topicFactory.show($location.path(), function(data){
             $scope.topic = data;
@@ -24,7 +26,7 @@ myApp.controller('topicsController', function($scope, $cookies, $location, userF
                 topicFactory.create($scope.newTopic, function(data){
                     $scope.newTopic = undefined;
                     topicFactory.index(function(data){
-                        $scope.topics = data
+                        $scope.topics = data;
                     });
                 });
             }
@@ -41,7 +43,7 @@ myApp.controller('topicsController', function($scope, $cookies, $location, userF
             topicFactory.createPost($scope.newPost, $location.url(), function(){
                 $scope.newPost = undefined;
                 topicFactory.show($location.path(), function(data){
-                        $scope.topic = data
+                        $scope.topic = data;
                 });
             });
         }
@@ -56,7 +58,7 @@ myApp.controller('topicsController', function($scope, $cookies, $location, userF
             topicFactory.createComment(comment, function(){
                 topicFactory.show($location.path(), function(data){
                         $scope.newComment = {};
-                        $scope.topic = data
+                        $scope.topic = data;
                 });
             })
             
@@ -67,7 +69,7 @@ myApp.controller('topicsController', function($scope, $cookies, $location, userF
 
         topicFactory.upVote(post_id, function(){
             topicFactory.show($location.path(), function(data){
-                        $scope.topic = data
+                        $scope.topic = data;
                 });
         });
         
@@ -77,10 +79,8 @@ myApp.controller('topicsController', function($scope, $cookies, $location, userF
 
         topicFactory.downVote(post_id, function(data){
             topicFactory.show($location.path(), function(data){
-                        $scope.topic = data
+                        $scope.topic = data;
                 });
-        });
-        
+        });        
     }
-
 })
