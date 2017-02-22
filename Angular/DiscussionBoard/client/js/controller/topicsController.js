@@ -38,12 +38,14 @@ myApp.controller('topicsController', function($scope, $cookies, $location, userF
     }
 
     $scope.addPost = function(){
+        // postCount = 0;
         if($scope.newPost){
             $scope.newPost._user = $scope.currentUser._id;
             topicFactory.createPost($scope.newPost, $location.url(), function(){
                 $scope.newPost = undefined;
                 topicFactory.show($location.path(), function(data){
                         $scope.topic = data;
+                        // postCount += 1;
                 });
             });
         }

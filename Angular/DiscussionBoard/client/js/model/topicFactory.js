@@ -16,20 +16,20 @@ myApp.factory('topicFactory', function($http){
     }
 
     factory.createPost = function(info, route, callback) {
-        $http.post(route + "/post", info).then(function(){
+        $http.post(route + "/topics/:id/post", info).then(function(){
             callback();
         });
     }
 
     factory.upVote = function(info, callback) {
-        $http.post("/topics/post/" + info).then(function(output){
+        $http.post("/posts/:post_id/upvote" + info).then(function(output){
             oneTopic = output;
             callback(oneTopic);
         });
     }
 
     factory.downVote = function(info, callback) {
-        $http.post("/topics/down/post/" + info).then(function(output){
+        $http.post("/posts/:id/downvote" + info).then(function(output){
             oneTopic = output;
             callback(oneTopic);
         });
